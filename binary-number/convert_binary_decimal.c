@@ -1,15 +1,15 @@
 #include <stdio.h>
+#include <stdlib.h>
 
-void decimalToBinary(int num) {
-
-
+void decimal_to_binary(int num) {
 
     int binary[32];
     int i = 0;
 
     if (num == 0) {
-        printf("0"); // If the decimal number is 0, the binary representation is 0.
-        return;
+        // If the decimal number is 0, the binary representation is 0.
+        printf("0\n");
+        exit(EXIT_SUCCESS);
     }
 
     while (num > 0) {
@@ -18,20 +18,22 @@ void decimalToBinary(int num) {
         i++;
     }
 
-    printf("Binary representation: ");
     for (int j = i - 1; j >= 0; j--) {
-        printf("%d", binary[j]); // Print the binary digits in reverse order to get the correct representation.
+        // Print the binary digits in reverse order to get the correct representation.
+        printf("%d", binary[j]);
     }
+
+    printf("\n");
 }
 
-int main() {
-    int decimalNumber;
+int main(void) {
+    int decimal_number = 0;
 
     printf("Enter a decimal number: ");
-    scanf("%d", &decimalNumber);
+    scanf("%d", &decimal_number);
 
     printf("Binary representation: ");
-    decimalToBinary(decimalNumber);
+    decimal_to_binary(decimal_number);
 
-    return 0;
+    return EXIT_SUCCESS;
 }
